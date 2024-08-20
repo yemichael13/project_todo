@@ -2,8 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const dbConfig = require('./config/db.config');
+const cors = require('cors');
 
-const app = express();
+const app = express(); // Move this line up before app.use(cors());
+
+// Enable CORS
+app.use(cors());
 
 // Parse requests of content-type - application/json
 app.use(bodyParser.json());
